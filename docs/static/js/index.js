@@ -1,5 +1,5 @@
-// Replace this placeholder when the dataset archive has a public download URL.
-const DATASET_URL = "DATASET_URL_TO_BE_ADDED";
+// Public dataset repository.
+const DATASET_URL = "https://huggingface.co/datasets/s1m0neee/TUTUS";
 const datasetLink = document.getElementById("dataset-link");
 if (datasetLink && /^https:\/\//.test(DATASET_URL)) {
   datasetLink.href = DATASET_URL;

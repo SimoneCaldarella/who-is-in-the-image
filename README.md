@@ -4,7 +4,7 @@
 Simone Caldarella · Matteo Farina · Massimiliano Mancini · Elisa Ricci · Rahaf Aljundi  
 **WACV 2027 — Dataset Track**
 
-[Paper](docs/assets/who-is-in-the-image.pdf) · **Dataset: [download link to be added](DATASET_URL_TO_BE_ADDED)** · arXiv: forthcoming
+[Paper](docs/assets/who-is-in-the-image.pdf) · **Dataset: [Hugging Face](https://huggingface.co/datasets/s1m0neee/TUTUS)** · arXiv: forthcoming
 
 TUTUS evaluates identity-name suppression without a predefined forget set, while measuring descriptive utility and robustness to malicious prompts. The experiments cover celebrity and fictitious identities, six LLaVA/Qwen models, four training-free baselines, and four post-training objectives applied to three model components.
 
@@ -30,16 +30,17 @@ The small vendored `lmms-eval` subset is loaded automatically for utility evalua
 
 ## 2. Download TUTUS
 
-**Dataset URL: `DATASET_URL_TO_BE_ADDED`**
+**Dataset: [s1m0neee/TUTUS](https://huggingface.co/datasets/s1m0neee/TUTUS)**
 
-Download **`TUTUS-dataset.zip`**, then extract it outside the repository or under ignored `data/`:
+Download the dataset folders from Hugging Face into the expected local directory:
 
 ```bash
-mkdir -p data
-unzip /path/to/TUTUS-dataset.zip -d data
+python -c 'from huggingface_hub import snapshot_download; snapshot_download(repo_id="s1m0neee/TUTUS", repo_type="dataset", local_dir="data/TUTUS-data")'
 export TUTUS_DATA_ROOT="$PWD/data/TUTUS-data"
 python run.py check-data
 ```
+
+If you already have `TUTUS-dataset.zip`, extract it with `unzip /path/to/TUTUS-dataset.zip -d data` to obtain the same layout.
 
 Alternatively, pass `--data-root /absolute/path/to/TUTUS-data` to each command. Point to the **`TUTUS-data` directory**, not its parent and not the ZIP.
 

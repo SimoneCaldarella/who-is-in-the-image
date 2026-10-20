@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css?v=results-table-4">
-  <script src="static/js/index.js" defer></script>
+  <script src="static/js/index.js?v=dataset-live-1" defer></script>
 </head>
 <body>
   <section class="hero is-gradient">
@@ -41,7 +41,7 @@
             <div class="publication-links">
               <span class="link-block"><a href="assets/who-is-in-the-image.pdf" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper</span></a></span>
               <span class="link-block"><a href="https://github.com/SimoneCaldarella/who-is-in-the-image" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Code</span></a></span>
-              <span class="link-block"><a id="dataset-link" class="external-link button is-normal is-rounded is-dark is-disabled" role="link" aria-disabled="true" tabindex="-1" title="Dataset download link will be added"><span class="icon"><i class="fas fa-database" aria-hidden="true"></i></span><span>Dataset</span></a></span>
+              <span class="link-block"><a id="dataset-link" class="external-link button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/s1m0neee/TUTUS" title="Explore and download TUTUS on Hugging Face"><span class="icon"><i class="fas fa-database" aria-hidden="true"></i></span><span>Dataset</span></a></span>
               <span class="link-block"><button type="button" class="external-link button is-normal is-rounded is-dark" disabled aria-disabled="true" title="arXiv link is not available yet"><span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></button></span>
               <span class="link-block"><a href="#bibtex" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-left" aria-hidden="true"></i></span><span>BibTeX</span></a></span>
             </div>
@@ -134,7 +134,7 @@
       <h2 class="title is-3">Preferences for identity anonymization</h2>
       <div class="figure-card"><img src="assets/preferences.png" loading="lazy" style="display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); margin:auto;" alt="Preference dataset construction: identity queries are paired with preferred non-identifying responses and rejected identity-leaking model responses."></div>
       <h2 class="subtitle has-text-justified">The training resource pairs an image and identity query with a preferred non-identifying response and a rejected leaking response. This lets researchers compare alignment objectives while retaining the same privacy task.</h2>
-      <div class="content"><p>The code release includes the experiment settings, dataset loaders, training-free baselines, post-training objectives, adaptation evaluation, attack and refusal analysis, and five utility benchmarks. The dataset download link will be added to the repository and enabled here when the release is hosted.</p><p><a href="https://github.com/SimoneCaldarella/who-is-in-the-image#readme">Reproduce the experiments →</a></p></div>
+      <div class="content"><p>The code release includes the experiment settings, dataset loaders, training-free baselines, post-training objectives, adaptation evaluation, attack and refusal analysis, and five utility benchmarks. The dataset, annotations, and available personalization adapters are hosted on <a href="https://huggingface.co/datasets/s1m0neee/TUTUS">Hugging Face</a>; evaluation and training code are available on GitHub.</p><p><a href="https://github.com/SimoneCaldarella/who-is-in-the-image#readme">Reproduce the experiments →</a></p></div>
     </div></div>
   </section>
 
