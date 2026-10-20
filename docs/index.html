@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css?v=side-by-side-teaser-3">
+  <link rel="stylesheet" href="static/css/index.css?v=results-table-4">
   <script src="static/js/index.js" defer></script>
 </head>
 <body>
@@ -93,20 +93,39 @@
         <li><strong class="metric-cdp">Contextual Description Preservation · CDP.</strong> How similar are the model’s image descriptions before and after anonymization?</li>
         <li><strong class="metric-jdr">Jailbreak Defense Ratio · JDR.</strong> How much of that suppression remains under malicious prompt variations?</li>
       </ul></div>
+      <div class="content"><p><strong>Reading the metrics.</strong> RSS is conditioned on examples where the base model reveals the identity, so eligible examples can differ across models. CDP measures sentence-embedding similarity between descriptions; it is a proxy for preservation. JDR tests whether suppression survives the evaluated malicious prompt variations. The harmonic mean (HM) combines the three scores with equal weighting, penalizing configurations with a weak dimension.</p></div>
       <h2 class="subtitle has-text-justified">One metric alone can hide a failure. Suppressing names by destroying visual information sacrifices utility; strong direct suppression can still collapse under a simple name-only request. TUTUS makes these trade-offs visible.</h2>
     </div></div>
   </section>
 
   <section class="section" id="alignment">
     <div class="container is-max-desktop"><div class="hero-body">
-      <h2 class="title is-3">Where should privacy alignment happen?</h2>
-      <div class="figure-card"><img src="assets/comparison.png" loading="lazy" style="display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); margin:auto;" alt="Original paper figure comparing training-free and post-training anonymization trade-offs across models and alignment objectives."></div>
+      <h2 class="title is-3">Privacy alignment and general visual utility</h2>
+      <div class="content"><p>Preventing name disclosure is only useful if the model can still interpret an image. Alongside TUTUS, we evaluate general visual performance on <strong>MMBench, MME, MMMU, SEEDBench, and VMCBench</strong>. The figure compares the base models, training-free safeguards, and post-training alignment of different model components.</p></div>
+      <figure class="figure-card utility-figure">
+        <img src="assets/comparison.png" loading="lazy" alt="General visual utility across MMBench, MME, MMMU, SEEDBench, and VMCBench for base models, training-free methods, and component-specific post-training alignment.">
+        <figcaption>General visual utility across five benchmarks. Colors distinguish methods and trainable components; hatched bars indicate post-training methods. These utility scores complement the identity suppression and robustness measurements below.</figcaption>
+      </figure>
       <div class="content has-text-justified"><ul class="takeaway-list">
         <li><strong>Training-free safeguards remain brittle.</strong> Prompting, blurring, noise injection, and visual-token pruning expose different privacy–utility trade-offs.</li>
         <li><strong>The alignment location matters.</strong> We compare the vision encoder, connector, and language model under SFT, gradient ascent, DPO, and NPO.</li>
         <li><strong>Vision-encoder alignment is a useful empirical choice.</strong> It often provides favorable trade-offs in the evaluated LLaVA and Qwen models.</li>
         <li><strong>Transfer is part of the evaluation.</strong> Anonymization is tested on unseen celebrity identities and after personalization on fictitious individuals.</li>
       </ul></div>
+      <h3 class="title is-4">How well does alignment transfer to unseen identities?</h3>
+      <div class="content"><p>The table reports <strong>unseen-identity HM on TUTUS-C</strong>, copied from Table 2 of the paper. HM combines identity suppression (RSS), description preservation (CDP), and jailbreak robustness (JDR); higher is better. For each model and objective, the paper reports its best-performing trainable component. This is a comparison of those selected configurations, rather than a comparison with a fixed component.</p></div>
+      <div class="table-container"><table class="table is-fullwidth is-striped results-table">
+        <caption>Unseen-identity HM (↑), as reported in the paper. Bold marks the highest value in each row.</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">SFT</th><th scope="col">GA</th><th scope="col">DPO</th><th scope="col">NPO</th></tr></thead><tbody>
+<tr><th scope="row">LLaVA-OneVision-0.5B</th><td>82.6</td><td><strong>91.2</strong></td><td>84.1</td><td>90.9</td></tr>
+<tr><th scope="row">Qwen2.5-VL-3B</th><td>57.2</td><td>66.9</td><td><strong>81.9</strong></td><td>80.3</td></tr>
+<tr><th scope="row">LLaVA-NeXT-7B</th><td>82.4</td><td><strong>88.1</strong></td><td>80.4</td><td>87.8</td></tr>
+<tr><th scope="row">LLaVA-OneVision-7B</th><td>89.5</td><td>90.4</td><td>90.4</td><td><strong>91.7</strong></td></tr>
+<tr><th scope="row">Qwen2-VL-7B</th><td>77.8</td><td>77.7</td><td><strong>79.3</strong></td><td>69.5</td></tr>
+<tr><th scope="row">Qwen2.5-VL-7B</th><td>21.9</td><td><strong>72.6</strong></td><td>57.6</td><td>72.4</td></tr>
+        </tbody></table></div>
+      <p class="muted objective-key">SFT: supervised fine-tuning · GA: gradient ascent · DPO: direct preference optimization · NPO: negative preference optimization.</p>
+      <div class="content"><p><strong>The best objective depends on the model.</strong> DPO achieves the highest unseen HM for Qwen2.5-VL-3B and Qwen2-VL-7B, while GA and NPO lead on other configurations. A high suppression score alone can hide a loss in description quality or robustness, which is why the paper also reports each metric separately.</p><p><strong>Alignment location and objective are separate choices.</strong> The paper's aggregate component analysis favors vision-encoder alignment in the evaluated settings, but the best component for an individual model–objective pair can be the connector or language model. These results cover LLaVA and Qwen models and celebrity identities; they do not establish universal privacy protection.</p><p><strong>Transfer is tested in two ways.</strong> Unseen celebrity identities test generalization beyond the preference-training identities. TUTUS-F tests fictitious identities introduced through downstream personalization, examining whether the anonymization behavior survives adaptation without another anonymization training stage.</p></div>
     </div></div>
   </section>
 
