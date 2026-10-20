@@ -277,18 +277,6 @@ tutus/
 docs/                        # Standalone project page and paper figures
 ```
 
-## Project website
-
-`docs/index.html` follows the structure of [Thinking Past the Answer](https://github.com/SimoneCaldarella/thinking-past-the-answer/tree/main/docs). The **arXiv button is intentionally disabled**. The dataset button is disabled until `DATASET_URL_TO_BE_ADDED` in `docs/static/js/index.js` is replaced by the hosted HTTPS URL. Replace the dataset placeholder in this README too.
-
-For local preview:
-
-```bash
-python -m http.server 8000 --directory docs
-```
-
-To publish with GitHub Pages, use the repository's `main` branch and `/docs` folder in Pages settings. The page needs no Jekyll build or Node dependencies. If desired, copy this same `docs/` content into a project subdirectory of the personal-site repository.
-
 ## Citation and licenses
 
 ```bibtex
