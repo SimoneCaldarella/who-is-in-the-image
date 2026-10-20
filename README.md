@@ -4,7 +4,7 @@
 Simone Caldarella · Matteo Farina · Massimiliano Mancini · Elisa Ricci · Rahaf Aljundi  
 **WACV 2027 — Dataset Track**
 
-[Project page source](docs/index.html) · [Paper](docs/assets/who-is-in-the-image.pdf) · **Dataset: [download link to be added](DATASET_URL_TO_BE_ADDED)** · arXiv: forthcoming
+[Paper](docs/assets/who-is-in-the-image.pdf) · **Dataset: [download link to be added](DATASET_URL_TO_BE_ADDED)** · arXiv: forthcoming
 
 TUTUS evaluates identity-name suppression without a predefined forget set, while measuring descriptive utility and robustness to malicious prompts. The experiments cover celebrity and fictitious identities, six LLaVA/Qwen models, four training-free baselines, and four post-training objectives applied to three model components.
 
