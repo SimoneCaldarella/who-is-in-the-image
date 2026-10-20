@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css?v=compact-figures-2">
+  <link rel="stylesheet" href="static/css/index.css?v=side-by-side-teaser-3">
   <script src="static/js/index.js" defer></script>
 </head>
 <body>
@@ -45,7 +45,10 @@
               <span class="link-block"><button type="button" class="external-link button is-normal is-rounded is-dark" disabled aria-disabled="true" title="arXiv link is not available yet"><span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></button></span>
               <span class="link-block"><a href="#bibtex" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-left" aria-hidden="true"></i></span><span>BibTeX</span></a></span>
             </div>
-            <div class="figure-card mt-5"><img src="assets/teaser.png" style="display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); margin:auto;" alt="TUTUS studies identity suppression, utility preservation, and prompt robustness, and compares alignment objectives across the vision encoder, connector, and language model."></div>
+            <div class="figure-card teaser-panels mt-5">
+              <img src="assets/teaser-anonymization.png" alt="Any Identity Anonymization: identity suppression, preservation of image content, and robustness to malicious prompt rephrasing.">
+              <img src="assets/teaser-training.png" alt="Post-Training Exploration: preference alignment of the vision encoder, connector, and language model using DPO, SFT, gradient ascent, and NPO.">
+            </div>
             <h2 class="subtitle has-text-justified hero-takeaway">Can a multimodal model describe a person without revealing who they are? We introduce <strong>TUTUS</strong> to study identity anonymization without a predefined forget set, jointly measuring privacy, descriptive utility, and resistance to malicious prompts.</h2>
           </div>
         </div>
