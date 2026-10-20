@@ -12,8 +12,8 @@ body { font-family:'Noto Sans',sans-serif; color:var(--ink); }
 .publication-links { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin:1.5rem 0 2.5rem; }
 .publication-links .button { padding-left:1.2rem; padding-right:1.2rem; }
 .button[disabled],.button.is-disabled { opacity:.42; cursor:not-allowed; pointer-events:none; }
-.figure-card { background:white; border:1px solid #e7e9ed; border-radius:10px; padding:.75rem; overflow:hidden; max-width:700px; margin:0 auto 1.5rem; }
-.figure-card img { display:block; width:100%; height:auto; max-height:420px; object-fit:contain; margin:auto; }
+.figure-card { background:white; border:1px solid #e7e9ed; border-radius:10px; padding:.75rem; overflow:hidden; max-width:560px; margin:0 auto 1.5rem; }
+.figure-card img { display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); object-fit:contain; margin:auto; }
 .hero-takeaway { margin-top:2rem!important; }
 .hero-body .subtitle { font-size:1.15rem; line-height:1.75; margin-top:1.7rem; }
 .section .hero-body { padding:1rem 0; }

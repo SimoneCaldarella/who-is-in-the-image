@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css?v=compact-figures-2">
   <script src="static/js/index.js" defer></script>
 </head>
 <body>
@@ -45,7 +45,7 @@
               <span class="link-block"><button type="button" class="external-link button is-normal is-rounded is-dark" disabled aria-disabled="true" title="arXiv link is not available yet"><span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></button></span>
               <span class="link-block"><a href="#bibtex" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-left" aria-hidden="true"></i></span><span>BibTeX</span></a></span>
             </div>
-            <div class="figure-card mt-5"><img src="assets/teaser.png" width="1000" alt="TUTUS studies identity suppression, utility preservation, and prompt robustness, and compares alignment objectives across the vision encoder, connector, and language model."></div>
+            <div class="figure-card mt-5"><img src="assets/teaser.png" style="display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); margin:auto;" alt="TUTUS studies identity suppression, utility preservation, and prompt robustness, and compares alignment objectives across the vision encoder, connector, and language model."></div>
             <h2 class="subtitle has-text-justified hero-takeaway">Can a multimodal model describe a person without revealing who they are? We introduce <strong>TUTUS</strong> to study identity anonymization without a predefined forget set, jointly measuring privacy, descriptive utility, and resistance to malicious prompts.</h2>
           </div>
         </div>
@@ -97,7 +97,7 @@
   <section class="section" id="alignment">
     <div class="container is-max-desktop"><div class="hero-body">
       <h2 class="title is-3">Where should privacy alignment happen?</h2>
-      <div class="figure-card"><img src="assets/comparison.png" loading="lazy" alt="Original paper figure comparing training-free and post-training anonymization trade-offs across models and alignment objectives."></div>
+      <div class="figure-card"><img src="assets/comparison.png" loading="lazy" style="display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); margin:auto;" alt="Original paper figure comparing training-free and post-training anonymization trade-offs across models and alignment objectives."></div>
       <div class="content has-text-justified"><ul class="takeaway-list">
         <li><strong>Training-free safeguards remain brittle.</strong> Prompting, blurring, noise injection, and visual-token pruning expose different privacy–utility trade-offs.</li>
         <li><strong>The alignment location matters.</strong> We compare the vision encoder, connector, and language model under SFT, gradient ascent, DPO, and NPO.</li>
@@ -110,7 +110,7 @@
   <section class="section hero is-light" id="preferences">
     <div class="container is-max-desktop"><div class="hero-body">
       <h2 class="title is-3">Preferences for identity anonymization</h2>
-      <div class="figure-card"><img src="assets/preferences.png" loading="lazy" alt="Preference dataset construction: identity queries are paired with preferred non-identifying responses and rejected identity-leaking model responses."></div>
+      <div class="figure-card"><img src="assets/preferences.png" loading="lazy" style="display:block; width:auto; max-width:100%; height:auto; max-height:min(320px, 40vh); margin:auto;" alt="Preference dataset construction: identity queries are paired with preferred non-identifying responses and rejected identity-leaking model responses."></div>
       <h2 class="subtitle has-text-justified">The training resource pairs an image and identity query with a preferred non-identifying response and a rejected leaking response. This lets researchers compare alignment objectives while retaining the same privacy task.</h2>
       <div class="content"><p>The code release includes the experiment settings, dataset loaders, training-free baselines, post-training objectives, adaptation evaluation, attack and refusal analysis, and five utility benchmarks. The dataset download link will be added to the repository and enabled here when the release is hosted.</p><p><a href="https://github.com/SimoneCaldarella/who-is-in-the-image#readme">Reproduce the experiments →</a></p></div>
     </div></div>
