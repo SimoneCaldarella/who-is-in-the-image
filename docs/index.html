@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TUTUS: benchmarking identity suppression, utility preservation, and prompt robustness in multimodal large language models. WACV 2027.">
+  <meta property="og:title" content="Who is in the Image?">
+  <meta property="og:description" content="Benchmarking Any Identity Anonymization in Multimodal Large Language Models">
+  <meta property="og:image" content="assets/teaser.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Simone Caldarella, Matteo Farina, Massimiliano Mancini, Elisa Ricci, Rahaf Aljundi">
+  <title>Who is in the Image? — TUTUS</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="static/js/index.js" defer></script>
+</head>
+<body>
+  <section class="hero is-gradient">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <p class="venue">WACV 2027 · Dataset Track</p>
+            <h1 class="title is-1 publication-title">Who is in the Image?<br><span>Benchmarking Any Identity Anonymization<br class="desktop-break"> in Multimodal Large Language Models</span></h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://simonecaldarella.github.io/">Simone Caldarella</a><sup>1</sup></span>
+              <span class="author-block">Matteo Farina<sup>1</sup></span>
+              <span class="author-block">Massimiliano Mancini<sup>1</sup></span>
+              <span class="author-block">Elisa Ricci<sup>1,2</sup></span>
+              <span class="author-block">Rahaf Aljundi<sup>3</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors affiliations">
+              <span class="author-block"><sup>1</sup>University of Trento</span>
+              <span class="author-block"><sup>2</sup>Fondazione Bruno Kessler</span>
+              <span class="author-block"><sup>3</sup>Toyota Motor Europe</span>
+            </div>
+            <div class="publication-links">
+              <span class="link-block"><a href="assets/who-is-in-the-image.pdf" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper</span></a></span>
+              <span class="link-block"><a href="https://github.com/SimoneCaldarella/who-is-in-the-image" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Code</span></a></span>
+              <span class="link-block"><a id="dataset-link" class="external-link button is-normal is-rounded is-dark is-disabled" role="link" aria-disabled="true" tabindex="-1" title="Dataset download link will be added"><span class="icon"><i class="fas fa-database" aria-hidden="true"></i></span><span>Dataset</span></a></span>
+              <span class="link-block"><button type="button" class="external-link button is-normal is-rounded is-dark" disabled aria-disabled="true" title="arXiv link is not available yet"><span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></button></span>
+              <span class="link-block"><a href="#bibtex" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-left" aria-hidden="true"></i></span><span>BibTeX</span></a></span>
+            </div>
+            <div class="figure-card mt-5"><img src="assets/teaser.png" width="1000" alt="TUTUS studies identity suppression, utility preservation, and prompt robustness, and compares alignment objectives across the vision encoder, connector, and language model."></div>
+            <h2 class="subtitle has-text-justified hero-takeaway">Can a multimodal model describe a person without revealing who they are? We introduce <strong>TUTUS</strong> to study identity anonymization without a predefined forget set, jointly measuring privacy, descriptive utility, and resistance to malicious prompts.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>We study the problem of preventing identity leakage of any individual in multimodal large language models (MLLMs). To enable standardized evaluation, we introduce TUTUS, a multimodal benchmark that assesses anonymization along three complementary desiderata: identity suppression, utility preservation, and robustness to malicious inputs. Using TUTUS, we systematically evaluate training-free and post-training alignment strategies across six MLLMs. Popular training-free methods, including face blurring and prompt engineering, are brittle despite appearing effective under isolated metrics. We investigate post-training using a preference dataset to align models toward identity anonymization. Our analyses show that the trade-off depends on the alignment objective and model component, with vision-encoder tuning offering favorable trade-offs in the evaluated LLaVA and Qwen settings. We also evaluate transfer to unseen celebrity identities and to synthetic identities introduced through downstream adaptation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="benchmark">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3">A benchmark for identity privacy</h2>
+        <div class="content has-text-justified"><p>Selective unlearning starts with a known set of identities to forget. <em>Any identity anonymization</em> instead asks a model to suppress name disclosure without that predefined set, while keeping non-identifying visual information useful. TUTUS evaluates this objective using celebrity and synthetic identities.</p></div>
+        <div class="table-container"><table class="table is-fullwidth benchmark-table"><thead><tr><th>Resource</th><th>What it tests</th></tr></thead><tbody>
+          <tr><td><strong>TUTUS-C</strong><br><span class="muted">Celebrity identities</span></td><td>Identity knowledge acquired before anonymization.</td></tr>
+          <tr><td><strong>TUTUS-F</strong><br><span class="muted">500 fictitious identities</span></td><td>New identities learned through continual adaptation.</td></tr>
+          <tr><td><strong>TUTUS-D</strong><br><span class="muted">300 images, 148 identities</span></td><td>Development, hyperparameter tuning, and checkpoint selection.</td></tr>
+          <tr><td><strong>TUTUS-Train</strong><br><span class="muted">15,000 collected images</span></td><td>Model-specific preferences for post-training privacy alignment.</td></tr>
+        </tbody></table></div>
+        <div class="takeaway"><strong>Scope.</strong> “Any identity” names the objective. Celebrity and synthetic evaluation does not establish universal protection for arbitrary real-world individuals.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light" id="metrics">
+    <div class="container is-max-desktop"><div class="hero-body">
+      <h2 class="title is-3">Privacy, utility, and robustness together</h2>
+      <div class="content"><ul class="takeaway-list">
+        <li><strong class="metric-rss">Relative Suppression Success · RSS.</strong> How often does anonymization suppress a name that the base model disclosed?</li>
+        <li><strong class="metric-cdp">Contextual Description Preservation · CDP.</strong> How similar are the model’s image descriptions before and after anonymization?</li>
+        <li><strong class="metric-jdr">Jailbreak Defense Ratio · JDR.</strong> How much of that suppression remains under malicious prompt variations?</li>
+      </ul></div>
+      <h2 class="subtitle has-text-justified">One metric alone can hide a failure. Suppressing names by destroying visual information sacrifices utility; strong direct suppression can still collapse under a simple name-only request. TUTUS makes these trade-offs visible.</h2>
+    </div></div>
+  </section>
+
+  <section class="section" id="alignment">
+    <div class="container is-max-desktop"><div class="hero-body">
+      <h2 class="title is-3">Where should privacy alignment happen?</h2>
+      <div class="figure-card"><img src="assets/comparison.png" loading="lazy" alt="Original paper figure comparing training-free and post-training anonymization trade-offs across models and alignment objectives."></div>
+      <div class="content has-text-justified"><ul class="takeaway-list">
+        <li><strong>Training-free safeguards remain brittle.</strong> Prompting, blurring, noise injection, and visual-token pruning expose different privacy–utility trade-offs.</li>
+        <li><strong>The alignment location matters.</strong> We compare the vision encoder, connector, and language model under SFT, gradient ascent, DPO, and NPO.</li>
+        <li><strong>Vision-encoder alignment is a useful empirical choice.</strong> It often provides favorable trade-offs in the evaluated LLaVA and Qwen models.</li>
+        <li><strong>Transfer is part of the evaluation.</strong> Anonymization is tested on unseen celebrity identities and after personalization on fictitious individuals.</li>
+      </ul></div>
+    </div></div>
+  </section>
+
+  <section class="section hero is-light" id="preferences">
+    <div class="container is-max-desktop"><div class="hero-body">
+      <h2 class="title is-3">Preferences for identity anonymization</h2>
+      <div class="figure-card"><img src="assets/preferences.png" loading="lazy" alt="Preference dataset construction: identity queries are paired with preferred non-identifying responses and rejected identity-leaking model responses."></div>
+      <h2 class="subtitle has-text-justified">The training resource pairs an image and identity query with a preferred non-identifying response and a rejected leaking response. This lets researchers compare alignment objectives while retaining the same privacy task.</h2>
+      <div class="content"><p>The code release includes the experiment settings, dataset loaders, training-free baselines, post-training objectives, adaptation evaluation, attack and refusal analysis, and five utility benchmarks. The dataset download link will be added to the repository and enabled here when the release is hosted.</p><p><a href="https://github.com/SimoneCaldarella/who-is-in-the-image#readme">Reproduce the experiments →</a></p></div>
+    </div></div>
+  </section>
+
+  <section class="section" id="acknowledgments">
+    <div class="container is-max-desktop"><div class="hero-body">
+      <h2 class="title is-3">Acknowledgments and Disclosure of Funding</h2>
+      <div class="content has-text-justified"><p>The authors acknowledge the CINECA award under the ISCRA initiative for the availability of high performance computing resources and support. This work was supported by the EU Horizon ELIAS (No. 101120237), ELLIOT (No. 101214398), and TURING (No. 101215032) projects.</p></div>
+    </div></div>
+  </section>
+
+  <section class="section hero is-light" id="bibtex">
+    <div class="container is-max-desktop">
+      <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><button id="copy-bibtex" class="button is-small is-rounded" type="button">Copy citation</button><span id="copy-status" class="sr-only" role="status" aria-live="polite"></span></div>
+      <pre><code id="citation">@inproceedings{caldarella2027who,
+  title     = {Who is in the Image? Benchmarking Any Identity Anonymization in Multimodal Large Language Models},
+  author    = {Caldarella, Simone and Farina, Matteo and Mancini, Massimiliano and Ricci, Elisa and Aljundi, Rahaf},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2027}
+}</code></pre>
+    </div>
+  </section>
+  <footer class="footer"><div class="container"><div class="columns is-centered"><div class="column is-8"><div class="content has-text-centered"><p>Made with &lt;3 by <a href="https://simonecaldarella.github.io/">Simone</a></p></div></div></div></div></footer>
+</body>
+</html>

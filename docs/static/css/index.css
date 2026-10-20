@@ -1,0 +1,33 @@
+/* Project-page structure follows the author's Thinking Past the Answer docs. */
+:root { color-scheme: light; --ink:#292d33; --muted:#68717b; --blue:#3273dc; }
+body { font-family:'Noto Sans',sans-serif; color:var(--ink); }
+.publication-title,.publication-authors,.venue { font-family:'Google Sans','Noto Sans',sans-serif; }
+.publication-title { font-weight:700; line-height:1.16; letter-spacing:-.025em; margin:1rem auto 1.8rem!important; }
+.publication-title span { font-size:.82em; font-weight:500; letter-spacing:-.02em; }
+.publication-authors { line-height:1.9; }
+.author-block { display:inline-block; margin:0 .3rem; }
+.author-block sup { font-size:.65em; margin-left:.12rem; }
+.affiliations { margin-top:.55rem; }
+.venue { color:#51627a; text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:700; }
+.publication-links { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin:1.5rem 0 2.5rem; }
+.publication-links .button { padding-left:1.2rem; padding-right:1.2rem; }
+.button[disabled],.button.is-disabled { opacity:.42; cursor:not-allowed; pointer-events:none; }
+.figure-card { background:white; border:1px solid #e7e9ed; border-radius:10px; padding:1.1rem; overflow:hidden; }
+.figure-card img { display:block; width:100%; height:auto; margin:auto; }
+.hero-takeaway { margin-top:2rem!important; }
+.hero-body .subtitle { font-size:1.15rem; line-height:1.75; margin-top:1.7rem; }
+.section .hero-body { padding:1rem 0; }
+.title.is-3 { font-weight:600; margin-bottom:1.5rem; }
+.content { line-height:1.85; }
+.takeaway { border-left:3px solid var(--blue); background:#f6f9fd; padding:1rem 1.2rem; margin-top:1.5rem; line-height:1.75; }
+.takeaway-list li { margin-bottom:1rem; }
+.benchmark-table td,.benchmark-table th { padding:1rem 1.2rem; vertical-align:middle; }
+.benchmark-table td:first-child { width:36%; }
+.muted { color:var(--muted); font-size:.88rem; }
+.metric-rss { color:#1f77b4; }.metric-cdp { color:#c16817; }.metric-jdr { color:#248c24; }
+.citation-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+.citation-heading .title { margin:0; }
+pre { border-radius:8px; white-space:pre; overflow-x:auto; background:#ededed; font-size:.85rem; line-height:1.7; }
+a:focus-visible,button:focus-visible { outline:3px solid #3273dc; outline-offset:4px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media(max-width:768px) { .publication-title { font-size:2.05rem!important; }.publication-authors { font-size:1rem!important; }.desktop-break { display:none; }.hero-body { padding:2rem 1.2rem; }.section { padding:2.5rem 1.25rem; }.figure-card { padding:.4rem; }.hero-body .subtitle { font-size:1rem; }.benchmark-table td,.benchmark-table th { padding:.75rem; }.citation-heading { align-items:flex-start; } }

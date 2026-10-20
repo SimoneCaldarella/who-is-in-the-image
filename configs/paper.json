@@ -1,0 +1,2744 @@
+{
+  "models": [
+    "llava_next",
+    "llava_onevision_smol",
+    "llava_onevision",
+    "qwen2vl",
+    "qwen2_5vl_smol",
+    "qwen2_5vl"
+  ],
+  "post_training": {
+    "llava_next-connector-dpo": {
+      "model": "llava_next",
+      "method": "connector",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "5623ad55-7124-440b-99c8-a7ddb81e5cc1"
+    },
+    "llava_next-connector-ga": {
+      "model": "llava_next",
+      "method": "connector",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "5fddf1ba-a0dc-4f17-91ba-789369a379a7"
+    },
+    "llava_next-connector-npo": {
+      "model": "llava_next",
+      "method": "connector",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "c530d09c-bb65-468d-8349-3d061603504a"
+    },
+    "llava_next-connector-sft": {
+      "model": "llava_next",
+      "method": "connector",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "a5e365d4-322a-4992-95e2-738e273ef594"
+    },
+    "llava_next-text-dpo": {
+      "model": "llava_next",
+      "method": "text",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "300b8703-3586-43af-a004-4084e451fac6"
+    },
+    "llava_next-text-ga": {
+      "model": "llava_next",
+      "method": "text",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "59b23285-67dd-46e6-bcac-e70316bbd5c7"
+    },
+    "llava_next-text-npo": {
+      "model": "llava_next",
+      "method": "text",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "c7e5284c-ff10-4aa5-95d1-d6ed367254c9"
+    },
+    "llava_next-text-sft": {
+      "model": "llava_next",
+      "method": "text",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "53c848c7-beaa-415b-bab6-a1fe392d0346"
+    },
+    "llava_next-vision-dpo": {
+      "model": "llava_next",
+      "method": "vision",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "cf2d696f-c232-49a7-b677-6afc4af4514d"
+    },
+    "llava_next-vision-ga": {
+      "model": "llava_next",
+      "method": "vision",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "e7358153-5d02-4e41-a37b-b0596438ed82"
+    },
+    "llava_next-vision-npo": {
+      "model": "llava_next",
+      "method": "vision",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "eb572e8f-c5d2-4cc8-a46a-a6cd0e9fa8b8"
+    },
+    "llava_next-vision-sft": {
+      "model": "llava_next",
+      "method": "vision",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "7787f764-e098-4c91-8a2f-8d79100dc0e0"
+    },
+    "llava_onevision-connector-dpo": {
+      "model": "llava_onevision",
+      "method": "connector",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "34e2dc5a-27fc-4929-9273-32b46a6c7788"
+    },
+    "llava_onevision-connector-ga": {
+      "model": "llava_onevision",
+      "method": "connector",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "a3f9d541-28d4-4b89-a936-b82b6711f841"
+    },
+    "llava_onevision-connector-npo": {
+      "model": "llava_onevision",
+      "method": "connector",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "11f37885-f3c3-44c8-a5db-e0ae827314e9"
+    },
+    "llava_onevision-connector-sft": {
+      "model": "llava_onevision",
+      "method": "connector",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "13693939-8921-454d-8e52-6092467b3357"
+    },
+    "llava_onevision-text-dpo": {
+      "model": "llava_onevision",
+      "method": "text",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "ed091405-353c-4d52-b3e0-2b528afba09f"
+    },
+    "llava_onevision-text-ga": {
+      "model": "llava_onevision",
+      "method": "text",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_50",
+      "source_run": "4400aa1b-e2b0-43bd-a149-a282e855214c"
+    },
+    "llava_onevision-text-npo": {
+      "model": "llava_onevision",
+      "method": "text",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "a244716b-b4ef-459f-9ab5-12dcb9a7a691"
+    },
+    "llava_onevision-text-sft": {
+      "model": "llava_onevision",
+      "method": "text",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_100",
+      "source_run": "f23ae9f6-4cac-49c2-b355-e144dd9b5017"
+    },
+    "llava_onevision-vision-dpo": {
+      "model": "llava_onevision",
+      "method": "vision",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "f57cfd4f-7bcf-4c5c-b6f3-7203a6ccf341"
+    },
+    "llava_onevision-vision-ga": {
+      "model": "llava_onevision",
+      "method": "vision",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "fb5b1f3d-2f47-4866-99ed-e571f289875e"
+    },
+    "llava_onevision-vision-npo": {
+      "model": "llava_onevision",
+      "method": "vision",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "a493212a-df35-420b-82a5-b13f0752472a"
+    },
+    "llava_onevision-vision-sft": {
+      "model": "llava_onevision",
+      "method": "vision",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "80fe49ba-df2e-4ce5-bc6d-3025e83b8707"
+    },
+    "llava_onevision_smol-connector-dpo": {
+      "model": "llava_onevision_smol",
+      "method": "connector",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "e23caa19-be6c-4d09-9ff2-a70f80da8cb1"
+    },
+    "llava_onevision_smol-connector-ga": {
+      "model": "llava_onevision_smol",
+      "method": "connector",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "3d6f5041-785f-463e-b4b5-20c8749f746d"
+    },
+    "llava_onevision_smol-connector-npo": {
+      "model": "llava_onevision_smol",
+      "method": "connector",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "1fb124f4-86a2-4541-9be7-d8565e877900"
+    },
+    "llava_onevision_smol-connector-sft": {
+      "model": "llava_onevision_smol",
+      "method": "connector",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "00464489-e8a9-4ad3-9b0e-cc92de6322a1"
+    },
+    "llava_onevision_smol-text-dpo": {
+      "model": "llava_onevision_smol",
+      "method": "text",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "6aa0dc94-7428-4ada-8dee-f9d297595284"
+    },
+    "llava_onevision_smol-text-ga": {
+      "model": "llava_onevision_smol",
+      "method": "text",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "6b49bacf-473a-44bb-b786-51fe95b3fcad"
+    },
+    "llava_onevision_smol-text-npo": {
+      "model": "llava_onevision_smol",
+      "method": "text",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "b91fc236-4020-4703-915d-6a287a357cd4"
+    },
+    "llava_onevision_smol-text-sft": {
+      "model": "llava_onevision_smol",
+      "method": "text",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_100",
+      "source_run": "dc93b0f1-0312-4be8-8dda-21f139ab504c"
+    },
+    "llava_onevision_smol-vision-dpo": {
+      "model": "llava_onevision_smol",
+      "method": "vision",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "8e7215f1-6ddf-4a0f-a844-d22567495ed5"
+    },
+    "llava_onevision_smol-vision-ga": {
+      "model": "llava_onevision_smol",
+      "method": "vision",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "918cd494-9d00-4892-a3b6-eb426128d1ae"
+    },
+    "llava_onevision_smol-vision-npo": {
+      "model": "llava_onevision_smol",
+      "method": "vision",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0005,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "9e6ccea2-a24b-49b4-939f-e02e5e1cf2aa"
+    },
+    "llava_onevision_smol-vision-sft": {
+      "model": "llava_onevision_smol",
+      "method": "vision",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "43ae7548-8d93-40e0-99f3-84d3e23ef8de"
+    },
+    "qwen2_5vl-connector-dpo": {
+      "model": "qwen2_5vl",
+      "method": "connector",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "47244d11-1e77-4cfe-9af4-cdf940133694"
+    },
+    "qwen2_5vl-connector-ga": {
+      "model": "qwen2_5vl",
+      "method": "connector",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_50",
+      "source_run": "400ee62a-5d68-4978-aa92-8aa938ec5135"
+    },
+    "qwen2_5vl-connector-npo": {
+      "model": "qwen2_5vl",
+      "method": "connector",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_50",
+      "source_run": "329a5084-864a-4394-834d-e5a399e232b9"
+    },
+    "qwen2_5vl-connector-sft": {
+      "model": "qwen2_5vl",
+      "method": "connector",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_60",
+      "source_run": "b38d068f-3e3d-4b60-89c9-339338a82a30"
+    },
+    "qwen2_5vl-text-dpo": {
+      "model": "qwen2_5vl",
+      "method": "text",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "5da2cc23-4b01-4da9-bd7a-e099856839e4"
+    },
+    "qwen2_5vl-text-ga": {
+      "model": "qwen2_5vl",
+      "method": "text",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "1c04ae1f-b98a-426d-811f-0ae5db0421ef"
+    },
+    "qwen2_5vl-text-npo": {
+      "model": "qwen2_5vl",
+      "method": "text",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "9d6f05e2-d148-43ec-a5ec-19904e79721b"
+    },
+    "qwen2_5vl-text-sft": {
+      "model": "qwen2_5vl",
+      "method": "text",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_60",
+      "source_run": "451bf06b-20a4-481d-a9c9-9090c1c473c8"
+    },
+    "qwen2_5vl-vision-dpo": {
+      "model": "qwen2_5vl",
+      "method": "vision",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "0c8b955c-191e-4d1c-a588-b4039679c6ea"
+    },
+    "qwen2_5vl-vision-ga": {
+      "model": "qwen2_5vl",
+      "method": "vision",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "43e67066-34c7-425a-9ee4-0d5e348567ca"
+    },
+    "qwen2_5vl-vision-npo": {
+      "model": "qwen2_5vl",
+      "method": "vision",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "ffc31026-3dcf-4cb8-ae6c-9c719a9a064e"
+    },
+    "qwen2_5vl-vision-sft": {
+      "model": "qwen2_5vl",
+      "method": "vision",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "f63c7773-ffeb-42e0-9ef9-c948d9ea55f8"
+    },
+    "qwen2_5vl_smol-connector-dpo": {
+      "model": "qwen2_5vl_smol",
+      "method": "connector",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_10",
+      "source_run": "8ab7f622-ad95-46c8-884e-d17aab389e93"
+    },
+    "qwen2_5vl_smol-connector-ga": {
+      "model": "qwen2_5vl_smol",
+      "method": "connector",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "ce143180-5f2d-4ada-8204-fe9ee85aab49"
+    },
+    "qwen2_5vl_smol-connector-npo": {
+      "model": "qwen2_5vl_smol",
+      "method": "connector",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "cd5186d9-f029-4074-8a9e-36884a016b1d"
+    },
+    "qwen2_5vl_smol-connector-sft": {
+      "model": "qwen2_5vl_smol",
+      "method": "connector",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_50",
+      "source_run": "deb0360c-be4c-41d6-ac4f-10cd84fd5b38"
+    },
+    "qwen2_5vl_smol-text-dpo": {
+      "model": "qwen2_5vl_smol",
+      "method": "text",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_100",
+      "source_run": "fa52940e-ed51-428b-bbf4-a6b7c4c99db8"
+    },
+    "qwen2_5vl_smol-text-ga": {
+      "model": "qwen2_5vl_smol",
+      "method": "text",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "53b1531b-25b2-4594-9eca-07de0ede91d9"
+    },
+    "qwen2_5vl_smol-text-npo": {
+      "model": "qwen2_5vl_smol",
+      "method": "text",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "df03d7f5-9666-4426-8160-7635e64aaae3"
+    },
+    "qwen2_5vl_smol-text-sft": {
+      "model": "qwen2_5vl_smol",
+      "method": "text",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "6eec6f86-a644-489b-b04d-97cdee0a6212"
+    },
+    "qwen2_5vl_smol-vision-dpo": {
+      "model": "qwen2_5vl_smol",
+      "method": "vision",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "6707fc3d-a59a-4d0a-87c8-5704e0aca097"
+    },
+    "qwen2_5vl_smol-vision-ga": {
+      "model": "qwen2_5vl_smol",
+      "method": "vision",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "ab9b8ef7-00a5-4860-9cf8-d9fc8ab5168b"
+    },
+    "qwen2_5vl_smol-vision-npo": {
+      "model": "qwen2_5vl_smol",
+      "method": "vision",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "7305f7e3-0fc5-4a8a-ab28-145f52af90d8"
+    },
+    "qwen2_5vl_smol-vision-sft": {
+      "model": "qwen2_5vl_smol",
+      "method": "vision",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_50",
+      "source_run": "73eab485-160a-4647-b8f9-20ee3050f787"
+    },
+    "qwen2vl-connector-dpo": {
+      "model": "qwen2vl",
+      "method": "connector",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "ce951592-1ca0-4f07-bb9d-fd88f10a5a9f"
+    },
+    "qwen2vl-connector-ga": {
+      "model": "qwen2vl",
+      "method": "connector",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "1a3d5489-0295-4399-a7d0-ed9cd223bda7"
+    },
+    "qwen2vl-connector-npo": {
+      "model": "qwen2vl",
+      "method": "connector",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "1dc844b1-6a71-41e7-a323-0eb4f43beec0"
+    },
+    "qwen2vl-connector-sft": {
+      "model": "qwen2vl",
+      "method": "connector",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 0.0001,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "f2bc3a5e-4dd9-4c4b-977d-68a042829eb7"
+    },
+    "qwen2vl-text-dpo": {
+      "model": "qwen2vl",
+      "method": "text",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "e32361fe-7968-468d-8cbc-a8ffa0e11b34"
+    },
+    "qwen2vl-text-ga": {
+      "model": "qwen2vl",
+      "method": "text",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "da92bdf2-942a-4d2c-a59d-b8e03136fae0"
+    },
+    "qwen2vl-text-npo": {
+      "model": "qwen2vl",
+      "method": "text",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_20",
+      "source_run": "33b49be1-e067-4248-990f-a01985b69347"
+    },
+    "qwen2vl-text-sft": {
+      "model": "qwen2vl",
+      "method": "text",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 1e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "ae8cc57e-ea44-4df5-920e-d768b956af65"
+    },
+    "qwen2vl-vision-dpo": {
+      "model": "qwen2vl",
+      "method": "vision",
+      "objective": "dpo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "dpo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "dafce5a0-2b46-48f6-ab23-d0380de4c123"
+    },
+    "qwen2vl-vision-ga": {
+      "model": "qwen2vl",
+      "method": "vision",
+      "objective": "ga",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "ga",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "c3ca8603-80cd-46b3-a278-5b4c4f7eac3f"
+    },
+    "qwen2vl-vision-npo": {
+      "model": "qwen2vl",
+      "method": "vision",
+      "objective": "npo",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "npo",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_30",
+      "source_run": "83eac6ca-e972-4778-916e-849e9cc4222e"
+    },
+    "qwen2vl-vision-sft": {
+      "model": "qwen2vl",
+      "method": "vision",
+      "objective": "sft",
+      "training": {
+        "full_precision": false,
+        "train_batch_size_per_gpu": 1,
+        "use_early_stopping": false,
+        "early_stopping_patience": 5,
+        "save_checkpoints": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          80,
+          100
+        ],
+        "num_gpus": 8,
+        "total_batch_size": 32,
+        "num_epochs": 1,
+        "optimizer": "adamw",
+        "lr": 5e-05,
+        "gradient_checkpointing": true,
+        "weight_decay": 0,
+        "lr_scheduler": "cosine",
+        "warmup_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "loss": {
+          "name": "sft",
+          "beta": 0.1
+        }
+      },
+      "checkpoint": "perc_40",
+      "source_run": "97f292c6-7b3f-4723-b411-766bb18c470f"
+    }
+  },
+  "training_free": {
+    "prompting": {
+      "name": "prompting",
+      "system_prompt": "Do not reveal the identity of the person in the image."
+    },
+    "blurring": {
+      "name": "blurring",
+      "facedetection_path": "assets/yolov8m-face.pt"
+    },
+    "noise": {
+      "name": "noise",
+      "level": 2.0,
+      "position": "pre_connector"
+    },
+    "pruning": {
+      "name": "pruning",
+      "sparsity": 0.7,
+      "position": "pre_connector"
+    }
+  },
+  "ablations": {
+    "noise": [
+      0.5,
+      1,
+      2,
+      5,
+      10,
+      100
+    ],
+    "pruning": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ]
+  },
+  "personalization": {
+    "llava_next": {
+      "epochs": 7,
+      "learning_rate": 2e-05
+    },
+    "llava_onevision_smol": {
+      "epochs": 10,
+      "learning_rate": 3e-05
+    },
+    "llava_onevision": {
+      "epochs": 10,
+      "learning_rate": 3e-05
+    },
+    "qwen2vl": {
+      "epochs": 10,
+      "learning_rate": 3e-05
+    },
+    "qwen2_5vl_smol": {
+      "epochs": 10,
+      "learning_rate": 3e-05
+    },
+    "qwen2_5vl": {
+      "epochs": 10,
+      "learning_rate": 3e-05
+    }
+  }
+}
